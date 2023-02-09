@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('middlename')->nullable();
             $table->string('lastname')->nullable();
             $table->char('phonenumber')->nullable();
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->tinyInteger('role')->default(0);
+            $table->foreignId('region')->nullable();
+            $table->foreignId('province')->nullable();
+            $table->foreignId('municipality')->nullable();
+            $table->foreignId('barangay')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

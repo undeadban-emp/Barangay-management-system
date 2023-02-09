@@ -143,21 +143,35 @@
                   </li>
                   <li class="menu-box"> 
                     <ul>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('home') }}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.barangay.official') }}"><i data-feather="user"> </i><span>Barangay Official</span></a></li>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.barangay.information') }}"><i data-feather="info"> </i><span>Barangay Info</span></a></li>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.resident.information') }}"><i data-feather="user"> </i><span>Resident Info</span></a></li>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.blotter.report') }}"><i data-feather="voicemail"> </i><span>Blotter Record</span></a></li>
+                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('home.superadmin') }}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
+                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="database"> </i><span>Data</span></a></li>
                     </ul>
                   </li>
                   <li class="menu-box"> 
                     <ul>
-                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="archive"></i><span>Certificate</span></a>
+                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="user"></i><span>Create User</span></a>
                         <ul class="sidebar-submenu">
-                          <li><a href="projects.html">Project List</a></li>
-                          <li><a href="projectcreate.html">Create new</a></li>
+                          <li><a href="">Admin</a></li>
+                          <li><a href="">Users</a></li>
                         </ul>
                       </li>
+                    </ul>
+                  </li>
+                  <li class="menu-box"> 
+                    <ul>
+                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings</span></a>
+                        <ul class="sidebar-submenu">
+                          <li><a href="">Region</a></li>
+                          <li><a href="">Province</a></li>
+                          <li><a href="">Municipality</a></li>
+                          <li><a href="">Barangay</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="menu-box"> 
+                    <ul>
+                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="folder"> </i><span>Logs</span></a></li>
                     </ul>
                   </li>
                 </ul>

@@ -65,6 +65,8 @@ class LoginController extends Controller
             else
             {
                 return redirect()->route('home');
+                // $request->session()->forget('laravel_session');
+                // return redirect()->route('login');
             }
         }
         else

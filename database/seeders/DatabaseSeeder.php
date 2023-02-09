@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
                 'middlename'=>'user',
                 'lastname'=>'user',
                 'phonenumber'=>'09565634097',
-                'email'=>'user@gmail.com',
                 'password'=>bcrypt('password'),
                 'role'=> 0
             ],
@@ -32,7 +31,6 @@ class DatabaseSeeder extends Seeder
                 'middlename'=>'admin',
                 'lastname'=>'admin',
                 'phonenumber'=>'09565634097',
-                'email'=>'admin@gmail.com',
                 'password'=>bcrypt('password'),
                 'role'=> 1
             ],
@@ -42,7 +40,6 @@ class DatabaseSeeder extends Seeder
                 'middlename'=>'superadmin',
                 'lastname'=>'superadmin',
                 'phonenumber'=>'09565634097',
-                'email'=>'superadmin@gmail.com',
                 'password'=>bcrypt('password'),
                 'role'=> 2
             ]

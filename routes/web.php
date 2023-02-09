@@ -8,6 +8,7 @@ use App\Http\Controllers\user\UserBarangayOfficialController;
 use App\Http\Controllers\user\UserBarangayInformationController;
 use App\Http\Controllers\user\UserResidentInformationController;
 use App\Http\Controllers\user\UserBlotterRecordController;
+use App\Http\Controllers\superadmin\SuperAdminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +45,5 @@ Route::middleware(['auth', 'user-role:admin'])->prefix('admin')->group(function(
 // superadmin route
 Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group(function()
 {
-    Route::get("/home", [HomeController::class, 'superadminHome'])->name('home.superadmin');
+    Route::get("/home", [SuperAdminDashboardController::class, 'index'])->name('home.superadmin');
 });
