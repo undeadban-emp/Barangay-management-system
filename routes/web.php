@@ -7,6 +7,7 @@ use App\Http\Controllers\user\UserDashboardController;
 use App\Http\Controllers\user\UserBlotterRecordController;
 use App\Http\Controllers\user\UserBarangayOfficialController;
 use App\Http\Controllers\superadmin\settings\RegionController;
+use App\Http\Controllers\superadmin\settings\ProvinceController;
 use App\Http\Controllers\user\UserBarangayInformationController;
 use App\Http\Controllers\user\UserResidentInformationController;
 use App\Http\Controllers\superadmin\SuperAdminDashboardController;
@@ -56,4 +57,11 @@ Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group
     Route::post("/region/settings/store", [RegionController::class, 'store'])->name('region.store.settings.superadmin');
     Route::post("/region/settings/update/{id}", [RegionController::class, 'update'])->name('region.update.settings.superadmin');
     Route::delete("/region/settings/destroy/{id}", [RegionController::class, 'destroy'])->name('region.destroy.settings.superadmin');
+
+    // province
+    Route::get("/province/index", [ProvinceController::class, 'index'])->name('province.settings.superadmin');
+    Route::get("/province/list", [ProvinceController::class, 'list'])->name('province.list.settings.superadmin');
+    Route::post("/province/settings/store", [ProvinceController::class, 'store'])->name('province.store.settings.superadmin');
+    Route::post("/province/settings/update/{id}", [ProvinceController::class, 'update'])->name('province.update.settings.superadmin');
+    Route::delete("/province/settings/destroy/{id}", [ProvinceController::class, 'destroy'])->name('province.destroy.settings.superadmin');
 });
