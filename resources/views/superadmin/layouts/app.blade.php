@@ -158,7 +158,7 @@
                         <ul class="sidebar-submenu">
                           <li><a href="{{ route('region.settings.superadmin') }}">Region</a></li>
                           <li><a href="{{ route('province.settings.superadmin') }}">Province</a></li>
-                          <li><a href="">Municipality</a></li>
+                          <li><a href="{{ route('municipality.settings.superadmin') }}">Municipality</a></li>
                           <li><a href="">Barangay</a></li>
                         </ul>
                       </li>

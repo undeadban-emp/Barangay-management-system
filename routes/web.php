@@ -11,6 +11,7 @@ use App\Http\Controllers\superadmin\settings\ProvinceController;
 use App\Http\Controllers\user\UserBarangayInformationController;
 use App\Http\Controllers\user\UserResidentInformationController;
 use App\Http\Controllers\superadmin\SuperAdminDashboardController;
+use App\Http\Controllers\superadmin\settings\MunicipalityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,6 @@ Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group
     Route::get("/home", [SuperAdminDashboardController::class, 'index'])->name('home.superadmin');
 
     // settings
-
     // region
     Route::get("/region/index", [RegionController::class, 'index'])->name('region.settings.superadmin');
     Route::get("/region/list", [RegionController::class, 'list'])->name('region.list.settings.superadmin');
@@ -64,4 +64,11 @@ Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group
     Route::post("/province/settings/store", [ProvinceController::class, 'store'])->name('province.store.settings.superadmin');
     Route::post("/province/settings/update/{id}", [ProvinceController::class, 'update'])->name('province.update.settings.superadmin');
     Route::delete("/province/settings/destroy/{id}", [ProvinceController::class, 'destroy'])->name('province.destroy.settings.superadmin');
+
+    // municipality
+    Route::get("/municipality/index", [MunicipalityController::class, 'index'])->name('municipality.settings.superadmin');
+    Route::get("/municipality/list", [MunicipalityController::class, 'list'])->name('municipality.list.settings.superadmin');
+    Route::post("/municipality/settings/store", [MunicipalityController::class, 'store'])->name('municipality.store.settings.superadmin');
+    Route::post("/municipality/settings/update/{id}", [MunicipalityController::class, 'update'])->name('municipality.update.settings.superadmin');
+    Route::delete("/municipality/settings/destroy/{id}", [MunicipalityController::class, 'destroy'])->name('municipality.destroy.settings.superadmin');
 });
