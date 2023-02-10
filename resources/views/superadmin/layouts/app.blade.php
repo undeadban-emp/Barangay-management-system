@@ -12,14 +12,9 @@
     <title>@yield('title') - {{ config('app.name', 'Laravel') }}</title><link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/font-awesome.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/icofont.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/themify.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/flag-icon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/feather-icon.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/scrollbar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/dropzone.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/vendors/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.css') }}">
     <link id="color" rel="stylesheet" href="{{ asset('/assets/css/color-1.css') }}" media="screen">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/responsive.css') }}">
@@ -56,7 +51,7 @@
           </form>
           <div class="header-logo-wrapper col-auto p-0">
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
-            <div class="logo-header-main"><a href="index.html"><img class="img-fluid for-light img-100" src="../assets/images/logo/logo2.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt=""></a></div>
+            <div class="logo-header-main"><a href="index.html"><img class="img-fluid for-light img-100" src="{{ asset('/assets/images/logo/logo2.png') }}" alt=""><img class="img-fluid for-dark" src="{{ asset('/assets/images/logo/logo.png') }}" alt=""></a></div>
           </div>
           <div class="left-header col horizontal-wrapper ps-0">
             <div class="left-menu-header">
@@ -121,14 +116,14 @@
         </div>
       </div>
 
-      
+
       <!-- Page Header Ends-->
       <!-- Page Body Start-->
       <div class="page-body-wrapper">
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""></a>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{{ asset('/assets/images/logo/logo.png') }}" alt=""></a>
               <div class="back-btn"><i data-feather="grid"></i></div>
               <div class="toggle-sidebar icon-box-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
             </div>
@@ -141,15 +136,15 @@
                   <li class="back-btn">
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
                     <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('home.superadmin') }}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
-                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="database"> </i><span>Data</span></a></li>
+                    <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="database"> </i><span>Resident</span></a></li>
                     </ul>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
-                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="user"></i><span>Create User</span></a>
+                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="user"></i><span>Create Account</span></a>
                         <ul class="sidebar-submenu">
                           <li><a href="">Admin</a></li>
                           <li><a href="">Users</a></li>
@@ -157,11 +152,11 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
                       <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings</span></a>
                         <ul class="sidebar-submenu">
-                          <li><a href="">Region</a></li>
+                          <li><a href="{{ route('region.settings.superadmin') }}">Region</a></li>
                           <li><a href="">Province</a></li>
                           <li><a href="">Municipality</a></li>
                           <li><a href="">Barangay</a></li>
@@ -169,7 +164,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
                     <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href=""><i data-feather="folder"> </i><span>Logs</span></a></li>
                     </ul>
@@ -183,7 +178,7 @@
         <!-- Page Sidebar Ends-->
 
         @yield('content')
-        
+
         <!-- footer start-->
         <footer class="footer">
           <div class="container-fluid">
@@ -199,18 +194,17 @@
         </footer>
       </div>
     </div>
-    <script src="{{ asset('/assets/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('/assets/js/jquery-3.6.0.min.js') }}"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/assets/js/icons/feather-icon/feather.min.js') }}"></script>
     <script src="{{ asset('/assets/js/icons/feather-icon/feather-icon.js') }}"></script>
     <script src="{{ asset('/assets/js/scrollbar/simplebar.js') }}"></script>
     <script src="{{ asset('/assets/js/scrollbar/custom.js') }}"></script>
     <script src="{{ asset('/assets/js/config.js') }}"></script>
     <script src="{{ asset('/assets/js/sidebar-menu.js') }}"></script>
-    <script src="{{ asset('/assets/js/dropzone/dropzone.js') }}"></script>
-    <script src="{{ asset('/assets/js/dropzone/dropzone-script.js') }}"></script>
-    <script src="{{ asset('/assets/js/tooltip-init.js') }}"></script>
     <script src="{{ asset('/assets/js/script.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @stack('page-scripts')
   </body>
 </html>
