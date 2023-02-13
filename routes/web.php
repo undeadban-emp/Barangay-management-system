@@ -7,6 +7,7 @@ use App\Http\Controllers\user\UserDashboardController;
 use App\Http\Controllers\user\UserBlotterRecordController;
 use App\Http\Controllers\user\UserBarangayOfficialController;
 use App\Http\Controllers\superadmin\settings\RegionController;
+use App\Http\Controllers\superadmin\settings\BarangayController;
 use App\Http\Controllers\superadmin\settings\ProvinceController;
 use App\Http\Controllers\user\UserBarangayInformationController;
 use App\Http\Controllers\user\UserResidentInformationController;
@@ -71,4 +72,11 @@ Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group
     Route::post("/municipality/settings/store", [MunicipalityController::class, 'store'])->name('municipality.store.settings.superadmin');
     Route::post("/municipality/settings/update/{id}", [MunicipalityController::class, 'update'])->name('municipality.update.settings.superadmin');
     Route::delete("/municipality/settings/destroy/{id}", [MunicipalityController::class, 'destroy'])->name('municipality.destroy.settings.superadmin');
+
+    // barangay
+    Route::get("/barangay/index", [BarangayController::class, 'index'])->name('barangay.settings.superadmin');
+    Route::get("/barangay/list", [BarangayController::class, 'list'])->name('barangay.list.settings.superadmin');
+    Route::post("/barangay/settings/store", [BarangayController::class, 'store'])->name('barangay.store.settings.superadmin');
+    Route::post("/barangay/settings/update/{id}", [BarangayController::class, 'update'])->name('barangay.update.settings.superadmin');
+    Route::delete("/barangay/settings/destroy/{id}", [BarangayController::class, 'destroy'])->name('barangay.destroy.settings.superadmin');
 });
