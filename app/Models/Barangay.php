@@ -13,4 +13,8 @@ class Barangay extends Model
     protected $fillable = [
         'description',
     ];
+    public function users()
+{
+    return $this->belongsTo(User::class, 'barangay', 'id');
+}
 }

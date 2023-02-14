@@ -22,6 +22,7 @@ return new class extends Migration
             $table->char('phonenumber')->nullable();
             $table->string('password');
             $table->tinyInteger('role')->default(0);
+            $table->tinyInteger('account_level')->nullable();
             $table->foreignId('region')->nullable();
             $table->foreignId('province')->nullable();
             $table->foreignId('municipality')->nullable();

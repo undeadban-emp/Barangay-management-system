@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Region;
+use App\Models\Barangay;
+use App\Models\Province;
+use App\Models\Municipality;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 'firstname'=>'user',
                 'middlename'=>'user',
                 'lastname'=>'user',
+                'account_level'=> 0,
                 'phonenumber'=>'09565634097',
                 'password'=>bcrypt('password'),
                 'role'=> 0
@@ -48,5 +53,47 @@ class DatabaseSeeder extends Seeder
         {
             User::create($users);
         }
+
+        $region = [
+            [
+                'description'=>'Caraga Region'
+            ]
+        ];
+        foreach($region as $regions)
+        {
+            Region::create($regions);
+        }
+
+        $province = [
+            [
+                'description'=>'Surigao del Sur'
+            ]
+        ];
+        foreach($province as $provinces)
+        {
+            Province::create($provinces);
+        }
+
+        $municipalities = [
+            [
+                'description'=>'Madrid'
+            ]
+        ];
+        foreach($municipalities as $municipalitiess)
+        {
+            Municipality::create($municipalitiess);
+        }
+
+        $Barangay = [
+            [
+                'description'=>'Patong-patong'
+            ]
+        ];
+        foreach($Barangay as $Barangays)
+        {
+            Barangay::create($Barangays);
+        }
+
+
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -21,8 +22,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
-        'email',
         'password',
+        'firstname',
+        'middlename',
+        'lastname',
+        'phonenumber',
+        'role',
+        'region',
+        'municipality',
+        'barangay',
     ];
 
     /**
@@ -48,6 +56,14 @@ class User extends Authenticatable
             get: fn($value) => ["user","admin","superadmin"][$value],
         );
     }
-
-
+    protected function fullname(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) =>  Str::upper($this->lastname) . ', ' . Str::upper($this->firstname) . ' ' . Str::upper($this->middlename)
+        );
+    }
+    public function barangays()
+    {
+        return $this->hasOne(Barangay::class, 'id', 'barangay');
+    }
 }

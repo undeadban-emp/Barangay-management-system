@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\user\UserDashboardController;
 use App\Http\Controllers\user\UserBlotterRecordController;
+use App\Http\Controllers\superadmin\account\UserController;
 use App\Http\Controllers\user\UserBarangayOfficialController;
 use App\Http\Controllers\superadmin\settings\RegionController;
 use App\Http\Controllers\superadmin\settings\BarangayController;
@@ -79,4 +80,10 @@ Route::middleware(['auth', 'user-role:superadmin'])->prefix('superadmin')->group
     Route::post("/barangay/settings/store", [BarangayController::class, 'store'])->name('barangay.store.settings.superadmin');
     Route::post("/barangay/settings/update/{id}", [BarangayController::class, 'update'])->name('barangay.update.settings.superadmin');
     Route::delete("/barangay/settings/destroy/{id}", [BarangayController::class, 'destroy'])->name('barangay.destroy.settings.superadmin');
+
+    // account
+    // user
+    Route::get("/account/index", [UserController::class, 'index'])->name('account.superadmin');
+    Route::get("/account/list", [UserController::class, 'list'])->name('account.list.superadmin');
+    Route::post("/account/store", [UserController::class, 'store'])->name('account.store.superadmin');
 });
