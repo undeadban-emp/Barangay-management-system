@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('password');
             $table->tinyInteger('role')->default(0);
             $table->tinyInteger('account_level')->nullable();
-            $table->foreignId('region')->nullable();
-            $table->foreignId('province')->nullable();
-            $table->foreignId('municipality')->nullable();
-            $table->foreignId('barangay')->nullable();
+            $table->foreignId('region_id')->nullable();
+            $table->foreignId('province_id')->nullable();
+            $table->foreignId('municipality_id')->nullable();
+            $table->foreignId('barangay_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

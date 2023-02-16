@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('puroks', function (Blueprint $table) {
             $table->id();
+            $table->integer('barangay_id');
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();

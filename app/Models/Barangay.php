@@ -14,7 +14,7 @@ class Barangay extends Model
         'description',
     ];
     public function users()
-{
-    return $this->belongsTo(User::class, 'barangay', 'id');
-}
+    {
+        return $this->belongsTo(User::class, 'barangay_id', 'id');
+    }
 }

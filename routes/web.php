@@ -37,7 +37,13 @@ Route::middleware(['auth', 'user-role:user'])->prefix('user')->group(function(){
     Route::get("/home", [UserDashboardController::class, 'index'])->name('home');
     Route::get("/barangay-official", [UserBarangayOfficialController::class, 'index'])->name('user.barangay.official');
     Route::get("/barangay-information", [UserBarangayInformationController::class, 'index'])->name('user.barangay.information');
+    // resident
     Route::get("/resident-information", [UserResidentInformationController::class, 'index'])->name('user.resident.information');
+    Route::get("/resident-information/create", [UserResidentInformationController::class, 'create'])->name('user.create.resident.information');
+    Route::post("/resident-information/store", [UserResidentInformationController::class, 'store'])->name('user.store.resident.information');
+
+
+
     Route::get("/blotter-report", [UserBlotterRecordController::class, 'index'])->name('user.blotter.report');
 });
 

@@ -4,7 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\Region;
+use App\Models\Barangay;
+use App\Models\Province;
 use Illuminate\Support\Str;
+use App\Models\Municipality;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -62,8 +66,20 @@ class User extends Authenticatable
             get: fn ($value) =>  Str::upper($this->lastname) . ', ' . Str::upper($this->firstname) . ' ' . Str::upper($this->middlename)
         );
     }
+    public function region()
+    {
+        return $this->hasOne(Region::class, 'id', 'region_id');
+    }
+    public function province()
+    {
+        return $this->hasOne(Province::class, 'id', 'province_id');
+    }
+    public function municipality()
+    {
+        return $this->hasOne(Municipality::class, 'id', 'municipality_id');
+    }
     public function barangays()
     {
-        return $this->hasOne(Barangay::class, 'id', 'barangay');
+        return $this->hasOne(Barangay::class, 'id', 'barangay_id');
     }
 }

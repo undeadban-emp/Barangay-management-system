@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('house_hold_no')->references('id')->on('households');
+            $table->string('isHead')->nullable();
             $table->string('firstname');
-            $table->string('middelename');
+            $table->string('middlename');
             $table->string('lastname');
             $table->string('suffix');
             $table->date('birth_date');
@@ -24,13 +26,6 @@ return new class extends Migration
             $table->char('sex');
             $table->string('civil_status');
             $table->string('citizenship');
-            $table->integer('house_no');
-            $table->foreignId('region')->nullable();
-            $table->foreignId('province')->nullable();
-            $table->foreignId('municipality')->nullable();
-            $table->foreignId('barangay')->nullable();
-            $table->foreignId('purok')->nullable();
-            $table->foreignId('zone')->nullable();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
+            $table->integer('purok_id');
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();

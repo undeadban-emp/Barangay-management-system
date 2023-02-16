@@ -58,12 +58,23 @@
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
             <div class="logo-header-main"><a href="index.html"><img class="img-fluid for-light img-100" src="../assets/images/logo/logo2.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt=""></a></div>
           </div>
+
+
+
           <div class="left-header col horizontal-wrapper ps-0">
             <div class="left-menu-header">
-              <ul class="app-list">
+              <ul class="header-left">
+                <li style="cursor:default;"><span class="f-w-600">{{ Auth::user()->region->description }}</span><span><i class="middle" data-feather="arrow-right"></i></span></li>
+                <li style="cursor:default;"><span class="f-w-600">{{ Auth::user()->province->description }}</span><span><i class="middle" data-feather="arrow-right"></i></span></li>
+                <li style="cursor:default;"><span class="f-w-600">{{ Auth::user()->municipality->description }}</span><span><i class="middle" data-feather="arrow-right"></i></span></li>
+                <li style="cursor:default;"><span class="f-w-600">{{ Auth::user()->barangays->description }}</span><span></span></li>
               </ul>
             </div>
           </div>
+
+
+
+
           <div class="nav-right col-6 pull-right right-header p-0">
             <ul class="nav-menus">
               <li class="onhover-dropdown">
@@ -121,7 +132,7 @@
         </div>
       </div>
 
-      
+
       <!-- Page Header Ends-->
       <!-- Page Body Start-->
       <div class="page-body-wrapper">
@@ -141,7 +152,7 @@
                   <li class="back-btn">
                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
                     <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('home') }}"><i data-feather="home"> </i><span>Dashboard</span></a></li>
                     <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.barangay.official') }}"><i data-feather="user"> </i><span>Barangay Official</span></a></li>
@@ -150,7 +161,7 @@
                     <li class="sidebar-list">  <a class="sidebar-link sidebar-title link-nav" href="{{ route('user.blotter.report') }}"><i data-feather="voicemail"> </i><span>Blotter Record</span></a></li>
                     </ul>
                   </li>
-                  <li class="menu-box"> 
+                  <li class="menu-box">
                     <ul>
                       <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="archive"></i><span>Certificate</span></a>
                         <ul class="sidebar-submenu">
@@ -169,7 +180,7 @@
         <!-- Page Sidebar Ends-->
 
         @yield('content')
-        
+
         <!-- footer start-->
         <footer class="footer">
           <div class="container-fluid">
@@ -197,6 +208,7 @@
     <script src="{{ asset('/assets/js/dropzone/dropzone-script.js') }}"></script>
     <script src="{{ asset('/assets/js/tooltip-init.js') }}"></script>
     <script src="{{ asset('/assets/js/script.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @stack('page-scripts')
   </body>
 </html>

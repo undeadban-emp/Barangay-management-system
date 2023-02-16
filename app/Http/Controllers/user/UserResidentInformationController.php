@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
+use App\Models\Zone;
+use App\Models\Purok;
+use App\Models\Person;
+use App\Models\Household;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserResidentInformationController extends Controller
 {
@@ -14,6 +19,7 @@ class UserResidentInformationController extends Controller
      */
     public function index()
     {
+
         return view('user.resident-information.index');
     }
 
@@ -24,7 +30,9 @@ class UserResidentInformationController extends Controller
      */
     public function create()
     {
-        //
+        $purok = Purok::where('barangay_id', Auth::user()->barangay_id)->get();
+        $zone = Zone::get();
+        return view('user.resident-information.create', compact('purok', 'zone'));
     }
 
     /**
@@ -35,7 +43,32 @@ class UserResidentInformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $houseHold = Household::create([
+            'region' => Auth::user()->region_id,
+            'province' => Auth::user()->province_id,
+            'municipality' => Auth::user()->municipality_id,
+            'barangay' => Auth::user()->barangay_id,
+            'house_hold_no' => $request->householdNo,
+            'purok' => $request->purok,
+            'zone' => $request->zone,
+        ]);
+        $data = explode('|', $request->valArray);
+        foreach($data as $datas){
+            Person::create([
+                'house_hold_no' => $houseHold->id,
+                'isHead' => $request['familyHead'.$datas],
+                'firstname' => $request['firstname'.$datas],
+                'middlename' => $request['middlename'.$datas],
+                'lastname' => $request['lastname'.$datas],
+                'suffix' => $request['suffix'.$datas],
+                'birth_date' => $request['birthDate'.$datas],
+                'birth_place' => $request['birthPlace'.$datas],
+                'sex' => $request['sex'.$datas],
+                'civil_status' => $request['civilStatus'.$datas],
+                'citizenship' => $request['citizenship'.$datas],
+            ]);
+        }
+        return back()->with('message', 'success');
     }
 
     /**

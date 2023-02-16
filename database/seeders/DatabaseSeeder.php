@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Zone;
+use App\Models\Purok;
 use App\Models\Region;
 use App\Models\Barangay;
 use App\Models\Province;
@@ -28,7 +30,11 @@ class DatabaseSeeder extends Seeder
                 'account_level'=> 0,
                 'phonenumber'=>'09565634097',
                 'password'=>bcrypt('password'),
-                'role'=> 0
+                'role'=> 0,
+                'region_id'=> 1,
+                'province_id'=> 1,
+                'municipality_id'=> 1,
+                'barangay_id'=> 1,
             ],
             [
                 'username'=>'admin',
@@ -89,11 +95,47 @@ class DatabaseSeeder extends Seeder
                 'description'=>'Patong-patong'
             ]
         ];
+
         foreach($Barangay as $Barangays)
         {
             Barangay::create($Barangays);
         }
+        $purok = [
+            [
+                'barangay_id'=> 1,
+                'description'=>'Purok-1',
+            ],
+            [
+                'barangay_id'=> 2,
+                'description'=>'Purok-2',
+            ],
+            [
+                'barangay_id'=> 3,
+                'description'=>'Purok-3',
+            ]
+        ];
+        foreach($purok as $puroks)
+        {
+            Purok::create($puroks);
+        }
 
-
+        $zone = [
+            [
+                'purok_id'=> 1,
+                'description'=>'zone 1',
+            ],
+            [
+                'purok_id'=> 2,
+                'description'=>'zone 2',
+            ],
+            [
+                'purok_id'=> 3,
+                'description'=>'zone 3',
+            ]
+        ];
+        foreach($zone as $zones)
+        {
+            Zone::create($zones);
+        }
     }
 }
