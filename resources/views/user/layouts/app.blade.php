@@ -163,11 +163,7 @@
                   </li>
                   <li class="menu-box">
                     <ul>
-                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="javascript:void(0)"><i data-feather="archive"></i><span>Certificate</span></a>
-                        <ul class="sidebar-submenu">
-                          <li><a href="projects.html">Project List</a></li>
-                          <li><a href="projectcreate.html">Create new</a></li>
-                        </ul>
+                      <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="{{ route('user.certificate') }}"><i data-feather="archive"></i><span>Certificate</span></a>
                       </li>
                     </ul>
                   </li>

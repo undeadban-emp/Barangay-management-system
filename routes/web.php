@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\user\UserDashboardController;
+use App\Http\Controllers\User\UserCertificateController;
 use App\Http\Controllers\user\UserBlotterRecordController;
 use App\Http\Controllers\superadmin\account\UserController;
 use App\Http\Controllers\user\UserBarangayOfficialController;
@@ -41,6 +42,11 @@ Route::middleware(['auth', 'user-role:user'])->prefix('user')->group(function(){
     Route::get("/resident-information", [UserResidentInformationController::class, 'index'])->name('user.resident.information');
     Route::get("/resident-information/create", [UserResidentInformationController::class, 'create'])->name('user.create.resident.information');
     Route::post("/resident-information/store", [UserResidentInformationController::class, 'store'])->name('user.store.resident.information');
+    // certificate
+    Route::get("/certificate", [UserCertificateController::class, 'index'])->name('user.certificate');
+    Route::get("/certificate/list/view", [UserCertificateController::class, 'list'])->name('user.list.certificate');
+    Route::get("/certificate/previewedprint/{type?}/{person_status?}", [UserCertificateController::class, 'previewedprint'])->name('user.previewedprint.certificate');
+    // Route::post("/certificate/store", [UserCertificateController::class, 'store'])->name('user.store.certificate');
 
 
 
