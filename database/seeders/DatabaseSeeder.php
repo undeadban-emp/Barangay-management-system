@@ -9,6 +9,7 @@ use App\Models\Purok;
 use App\Models\Region;
 use App\Models\Barangay;
 use App\Models\Province;
+use App\Models\Certificate;
 use App\Models\Municipality;
 use Illuminate\Database\Seeder;
 
@@ -136,6 +137,37 @@ class DatabaseSeeder extends Seeder
         foreach($zone as $zones)
         {
             Zone::create($zones);
+        }
+
+        $certificate = [
+            [
+                'description'=>'Certification',
+                'heading'=>'OFFICE OF THE PUNONG BARANGAY',
+            ],
+            [
+                'description'=>'Barangay Certification',
+                'heading'=>'OFFICE OF THE PUNONG BARANGAY',
+            ],
+            [
+                'description'=>'Barangay Business Permit',
+                'heading'=>'OFFICE OF THE PUNONG BARANGAY',
+            ],
+            [
+                'description'=>'Barangay Clearance (Business)',
+                'heading'=>'OFFICE OF THE PUNONG BARANGAY',
+            ],
+            [
+                'description'=>'Sumbong (Complaint)',
+                'heading'=>'BUHATAN SA LUPONG TAGAPAMAYAPA',
+            ],
+            [
+                'description'=>'Pahibalo Alang sa Husay (Mediation)',
+                'heading'=>'BUHATAN SA LUPONG TAGAPAMAYAPA',
+            ]
+        ];
+        foreach($certificate as $certificates)
+        {
+            Certificate::create($certificates);
         }
     }
 }
