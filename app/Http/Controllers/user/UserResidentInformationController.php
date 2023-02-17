@@ -43,32 +43,35 @@ class UserResidentInformationController extends Controller
      */
     public function store(Request $request)
     {
-        // $houseHold = Household::create([
-        //     'region' => Auth::user()->region_id,
-        //     'province' => Auth::user()->province_id,
-        //     'municipality' => Auth::user()->municipality_id,
-        //     'barangay' => Auth::user()->barangay_id,
-        //     'house_hold_no' => $request->householdNo,
-        //     'purok' => $request->purok,
-        //     'zone' => $request->zone,
-        // ]);
-        // $data = explode('|', $request->valArray);
-        // foreach($data as $datas){
-        //     Person::create([
-        //         'house_hold_no' => $houseHold->id,
-        //         'isHead' => $request['familyHead'.$datas],
-        //         'firstname' => $request['firstname'.$datas],
-        //         'middlename' => $request['middlename'.$datas],
-        //         'lastname' => $request['lastname'.$datas],
-        //         'suffix' => $request['suffix'.$datas],
-        //         'birth_date' => $request['birthDate'.$datas],
-        //         'birth_place' => $request['birthPlace'.$datas],
-        //         'sex' => $request['sex'.$datas],
-        //         'civil_status' => $request['civilStatus'.$datas],
-        //         'citizenship' => $request['citizenship'.$datas],
-        //     ]);
-        // }
-        // return back()->with('message', 'success');
+
+        $houseHoldDataArray = explode('|', $request->houseHoldData);
+        $houseHold = Household::create([
+            'region' => Auth::user()->region_id,
+            'province' => Auth::user()->province_id,
+            'municipality' => Auth::user()->municipality_id,
+            'barangay' => Auth::user()->barangay_id,
+            'house_hold_no' => $houseHoldDataArray[0],
+            'purok' => $houseHoldDataArray[1],
+            'zone' => $houseHoldDataArray[2],
+        ]);
+        $lengthAddedInRowArray = explode('~~', $request->residentdata);
+        foreach($lengthAddedInRowArray as $lengthAddedInRowArrays){
+            $residentAddedRowStore = explode('|', $lengthAddedInRowArrays);
+            Person::create([
+                'house_hold_no' => $houseHold->id,
+                'isHead' => $residentAddedRowStore[4],
+                'firstname' => $residentAddedRowStore[0],
+                'middlename' => $residentAddedRowStore[1],
+                'lastname' => $residentAddedRowStore[2],
+                'suffix' => $residentAddedRowStore[3],
+                'birth_date' => $residentAddedRowStore[5],
+                'birth_place' => $residentAddedRowStore[6],
+                'sex' => $residentAddedRowStore[7],
+                'civil_status' => $residentAddedRowStore[8],
+                'citizenship' => $residentAddedRowStore[9],
+            ]);
+        }
+        return response()->json(['success' => true]);
     }
 
     /**

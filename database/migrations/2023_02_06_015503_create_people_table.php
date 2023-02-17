@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('middlename');
             $table->string('lastname');
             $table->string('suffix');
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->string('birth_place');
-            $table->char('sex');
+            $table->string('sex');
             $table->string('civil_status');
             $table->string('citizenship');
             $table->timestamps();
