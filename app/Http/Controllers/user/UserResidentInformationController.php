@@ -43,32 +43,32 @@ class UserResidentInformationController extends Controller
      */
     public function store(Request $request)
     {
-        $houseHold = Household::create([
-            'region' => Auth::user()->region_id,
-            'province' => Auth::user()->province_id,
-            'municipality' => Auth::user()->municipality_id,
-            'barangay' => Auth::user()->barangay_id,
-            'house_hold_no' => $request->householdNo,
-            'purok' => $request->purok,
-            'zone' => $request->zone,
-        ]);
-        $data = explode('|', $request->valArray);
-        foreach($data as $datas){
-            Person::create([
-                'house_hold_no' => $houseHold->id,
-                'isHead' => $request['familyHead'.$datas],
-                'firstname' => $request['firstname'.$datas],
-                'middlename' => $request['middlename'.$datas],
-                'lastname' => $request['lastname'.$datas],
-                'suffix' => $request['suffix'.$datas],
-                'birth_date' => $request['birthDate'.$datas],
-                'birth_place' => $request['birthPlace'.$datas],
-                'sex' => $request['sex'.$datas],
-                'civil_status' => $request['civilStatus'.$datas],
-                'citizenship' => $request['citizenship'.$datas],
-            ]);
-        }
-        return back()->with('message', 'success');
+        // $houseHold = Household::create([
+        //     'region' => Auth::user()->region_id,
+        //     'province' => Auth::user()->province_id,
+        //     'municipality' => Auth::user()->municipality_id,
+        //     'barangay' => Auth::user()->barangay_id,
+        //     'house_hold_no' => $request->householdNo,
+        //     'purok' => $request->purok,
+        //     'zone' => $request->zone,
+        // ]);
+        // $data = explode('|', $request->valArray);
+        // foreach($data as $datas){
+        //     Person::create([
+        //         'house_hold_no' => $houseHold->id,
+        //         'isHead' => $request['familyHead'.$datas],
+        //         'firstname' => $request['firstname'.$datas],
+        //         'middlename' => $request['middlename'.$datas],
+        //         'lastname' => $request['lastname'.$datas],
+        //         'suffix' => $request['suffix'.$datas],
+        //         'birth_date' => $request['birthDate'.$datas],
+        //         'birth_place' => $request['birthPlace'.$datas],
+        //         'sex' => $request['sex'.$datas],
+        //         'civil_status' => $request['civilStatus'.$datas],
+        //         'citizenship' => $request['citizenship'.$datas],
+        //     ]);
+        // }
+        // return back()->with('message', 'success');
     }
 
     /**
